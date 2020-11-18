@@ -1,30 +1,32 @@
-pipeline
-{
-agent any
-environment {
-maven = 'Maven3.6.3'
-}
-stages {
+pipeline {
+  agent any
+  stages {
     stage('Build') {
-        steps {
-              sh 'mvn compile'
-              }
+      steps {
+        sh 'mvn compile'
       }
-     stage('Test') {    
-        steps {
-            sh 'mvn test'
-               }
+    }
+
+    stage('Test') {
+      steps {
+        sh 'mvn test'
       }
+    }
+
     stage('Package') {
-        steps {
-            sh 'mvn package -DskipTests'
-            }
+      steps {
+        sh 'mvn package -DskipTests'
       }
+    }
+
     stage('Archival') {
-        steps {
-            archiveArtifacts(onlyIfSuccessful: true, artifacts: '*/*.jar')
-              }
+      steps {
+        archiveArtifacts(onlyIfSuccessful: true, artifacts: '*/*.jar')
       }
-    }//stages
- 
-}//pipeline
+    }
+
+  }
+  environment {
+    maven = 'maven363'
+  }
+}

@@ -2,7 +2,7 @@ pipeline
 {
 agent any
 environment {
-Maven = 'Maven3.6.3'
+maven = 'Maven3.6.3'
 }
 stages {
     stage('Build') {

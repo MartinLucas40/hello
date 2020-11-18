@@ -26,7 +26,7 @@ pipeline {
     }
 
   }
-  environment {
+  tool {
     maven = 'maven363'
   }
 }

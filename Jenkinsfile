@@ -1,6 +1,9 @@
 pipeline
 {
 agent any
+environment {
+Maven = 'Maven3.6.3'
+}
 stages {
     stage('Build') {
         steps {
@@ -23,7 +26,5 @@ stages {
               }
       }
     }//stages
-environment {
-Maven = 'Maven3.6.3'
-}
+ 
 }//pipeline
